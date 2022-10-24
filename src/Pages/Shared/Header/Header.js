@@ -4,6 +4,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   <BootstrapSwitchButton>
@@ -14,16 +15,41 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand href="/">COURSE GURU</Navbar.Brand>
+        <Navbar.Brand>
+          <Link className="text-light  text-decoration-none" to="/">
+            COURSE GURU
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link to="#deets">Home</Nav.Link>
-            <Nav.Link href="#des">Courses</Nav.Link>
-            <Nav.Link href="#eet">FAQ</Nav.Link>
-            <Nav.Link href="#deet">Blog</Nav.Link>
-            <Nav.Link href="#deet">Logout</Nav.Link>
-            <Nav.Link href="#deet">login</Nav.Link>
+          <Nav className="ms-auto d-flex  align-items-center">
+            <Link className="text-light me-4 text-decoration-none" to="/home">
+              Home
+            </Link>
+            <Link
+              className="text-light me-4 text-decoration-none"
+              to="/courses"
+            >
+              Courses
+            </Link>
+            <Link className="text-light  me-4 text-decoration-none" to="/faq">
+              FAQ
+            </Link>
+            <Link className="text-light me-4 text-decoration-none" to="/blog">
+              Blog
+            </Link>
+            <Link className="text-light me-4 text-decoration-none" to="/logout">
+              Logout
+            </Link>
+            <Link className="text-light me-4 text-decoration-none" to="/login">
+              Login
+            </Link>
+            <Link
+              className="text-light me-4 text-decoration-none"
+              to="/register"
+            >
+              Register
+            </Link>
 
             <BootstrapSwitchButton checked={true} onstyle="dark" />
           </Nav>
