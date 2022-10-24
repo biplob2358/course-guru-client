@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FiGithub } from "react-icons/fi";
-import "./Login.css";
 
-const Login = () => {
+const Register = () => {
   return (
     <div
       style={{ height: "600px" }}
@@ -12,7 +11,14 @@ const Login = () => {
     >
       <div className="login mx-auto">
         <form>
-          <h1 className="text-center my-3">Login</h1>
+          <h1 className="text-center my-3">Register</h1>
+          <input
+            type="text"
+            className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
+            placeholder="Name"
+            style={{ backgroundColor: "#F5F5F5" }}
+            required
+          />
           <input
             type="email"
             className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
@@ -23,12 +29,19 @@ const Login = () => {
           <input
             type="password"
             className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
-            placeholder="Password"
+            placeholder=" Password"
+            style={{ backgroundColor: "#F5F5F5" }}
+            required
+          />
+          <input
+            type="password"
+            className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
+            placeholder="Confirm Password"
             style={{ backgroundColor: "#F5F5F5" }}
             required
           />
           <button className="d-block mx-auto btn btn-primary" type="submit">
-            Login
+            Register
           </button>
         </form>
         <div className="d-flex align-items-center justify-content-center">
@@ -36,13 +49,11 @@ const Login = () => {
             OR
           </h5>
         </div>
-        <p className="text-primary text-center" style={{ cursor: "pointer" }}>
-          Forget Password?
-        </p>
+
         <p className="text-center">
-          New User ?{" "}
-          <Link to="/register" className="text-decoration-none text-info">
-            Sign Up
+          Already have an account?{" "}
+          <Link to="/login" className="text-decoration-none text-info">
+            Login
           </Link>{" "}
           Now!
         </p>
@@ -59,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
