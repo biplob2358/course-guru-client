@@ -4,6 +4,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import logo from "../../../Asset/logo/logo.jpg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -17,6 +18,14 @@ const Header = () => {
       <Container>
         <Navbar.Brand>
           <Link className="text-light  text-decoration-none" to="/">
+            <img
+              className="me-4"
+              src={logo}
+              width="30"
+              height="30"
+              class="d-inline-block align-top"
+              alt=""
+            />
             COURSE GURU
           </Link>
         </Navbar.Brand>
