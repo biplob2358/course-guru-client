@@ -18,14 +18,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand>
           <Link className="text-light  text-decoration-none" to="/">
-            <img
-              className="me-4"
-              src={logo}
-              width="30"
-              height="30"
-              class="d-inline-block align-top"
-              alt=""
-            />
+            <img className="me-4" src={logo} width="30" height="30" alt="" />
             COURSE GURU
           </Link>
         </Navbar.Brand>

@@ -40,7 +40,7 @@ const Home = () => {
       </Container>
       {/* Why Course Guru */}
       <Container className="mt-5">
-        <h1>Why Course Guru?</h1>
+        <h1 className="App">Why Course Guru?</h1>
         <CardGroup>
           <Card>
             <Card.Img variant="top" src={img1} />
