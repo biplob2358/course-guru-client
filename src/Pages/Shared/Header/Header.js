@@ -16,7 +16,12 @@ const Header = () => {
     checked={false}
     onlabel="Hello" offlabel='Regular User'
   </BootstrapSwitchButton>;
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
@@ -44,35 +49,46 @@ const Header = () => {
             <Link className="text-light me-4 text-decoration-none" to="/blog">
               Blog
             </Link>
-            <Link className="text-light me-4 text-decoration-none" to="/logout">
-              Logout
-            </Link>
-            <Link className="text-light me-4 text-decoration-none" to="/login">
-              Login
-            </Link>
-            <Link
-              className="text-light me-4 text-decoration-none"
-              to="/register"
-            >
-              Register
-            </Link>
-            <Link
-              className="text-light me-4 text-decoration-none"
-              to="/profile"
-            >
-              {user?.displayName}
-            </Link>
-            <NavLink className="text-white text-decoration-none me-2">
-              {user?.photoURL ? (
-                <Image
-                  style={{ height: "40px" }}
-                  roundedCircle
-                  src={user.photoURL}
-                ></Image>
+
+            <div className="text-light me-4 text-decoration-none" to="/profile">
+              {user?.uid ? (
+                <>
+                  <span>{user?.displayName}</span>
+                  <NavLink className="text-white text-decoration-none mx-1">
+                    {user?.photoURL ? (
+                      <Image
+                        style={{ height: "40px" }}
+                        roundedCircle
+                        src={user.photoURL}
+                      ></Image>
+                    ) : (
+                      <FaUser></FaUser>
+                    )}
+                  </NavLink>
+                  <Link
+                    className="text-light ms-2 text-decoration-none"
+                    onClick={handleLogOut}
+                  >
+                    Logout
+                  </Link>
+                </>
               ) : (
-                <FaUser></FaUser>
+                <>
+                  <Link
+                    className="text-light me-4 text-decoration-none"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    className="text-light me-4 text-decoration-none"
+                    to="/register"
+                  >
+                    Register
+                  </Link>
+                </>
               )}
-            </NavLink>
+            </div>
 
             <BootstrapSwitchButton checked={true} onstyle="dark" />
           </Nav>
