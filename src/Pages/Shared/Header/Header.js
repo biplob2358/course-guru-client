@@ -12,8 +12,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
+import { useState } from "react";
 
 const Header = () => {
+  const [theme, setTheme] = useState("Light");
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
@@ -25,6 +27,12 @@ const Header = () => {
       <span>{user?.displayName}</span>
     </Tooltip>
   );
+
+  const handleToggle = () => {
+    let val = theme;
+
+    val === "Light" ? setTheme("Dark") : setTheme("Light");
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -97,16 +105,18 @@ const Header = () => {
                 </>
               )}
             </div>
-            <div className="form-check form-switch ">
-              <label className="form-check-label " for="lightSwitch">
-                {" "}
-                Dark Mode{" "}
-              </label>
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="lightSwitch"
-              />
+            <div className="bg-white px-2 rounded">
+              <div className="form-check form-switch  ">
+                <label className="form-check-label  " htmlFor="lightSwitch">
+                  {theme}
+                </label>
+                <input
+                  onClick={handleToggle}
+                  className="form-check-input "
+                  type="checkbox"
+                  id="lightSwitch"
+                />
+              </div>
             </div>
           </Nav>
         </Navbar.Collapse>

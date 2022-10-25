@@ -6,10 +6,12 @@ import GoogleGitLogin from "../../GoogleGitLogin/GoogleGitLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const [accept, setAccept] = useState(false);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +20,7 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoURL, email, password);
+    // console.log(name, photoURL, email, password);
 
     createUser(email, password)
       .then((result) => {
@@ -26,11 +28,26 @@ const Register = () => {
         console.log(user);
         setError("");
         form.reset();
+        toast.success("Register successfull");
+        handleUpdateUser(name, photoURL);
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
       });
+  };
+  const handleUpdateUser = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
+  const handleAccepted = (event) => {
+    setAccept(event.target.checked);
   };
   return (
     <div className="d-flex  justify-content-center align-items-center ">
@@ -74,8 +91,19 @@ const Register = () => {
               required
             />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
+              type="checkbox"
+              onClick={handleAccepted}
+              label={
+                <>
+                  Accept <Link>Terms and Conditions</Link>
+                </>
+              }
+            />
+          </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" disabled={!accept}>
             Register
           </Button>
         </form>

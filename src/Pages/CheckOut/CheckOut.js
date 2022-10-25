@@ -6,6 +6,7 @@ import CheckOutForm from "./CheckOutForm";
 const CheckOut = () => {
   const checkOutDetails = useLoaderData();
   const { name, price, img, rating } = checkOutDetails;
+
   return (
     <div className="container mt-4">
       <div className="checkout-container">

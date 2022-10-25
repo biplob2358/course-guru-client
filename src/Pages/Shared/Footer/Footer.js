@@ -13,7 +13,7 @@ import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-primary">
+    <footer className="footer bg-primary mt-auto">
       <div className="footer-left col-md-4 col-sm-6">
         <p className="about">
           <span> About us</span> At Course Guru, we’re all learners and
@@ -54,7 +54,7 @@ const Footer = () => {
           <p>
             <Link className="text-light" href="#">
               {" "}
-              <FiMail className="me-2"></FiMail>office@company.com
+              <FiMail className="me-2"></FiMail>course.guru@edu.bd
             </Link>
           </p>
         </div>

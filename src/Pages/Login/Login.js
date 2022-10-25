@@ -8,6 +8,7 @@ import GoogleGitLogin from "../../GoogleGitLogin/GoogleGitLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -28,6 +29,7 @@ const Login = () => {
         console.log(user);
         setError("");
         form.reset();
+        toast.success("Login Successfull");
         navigate(from, { replace: true });
       })
       .catch((error) => {

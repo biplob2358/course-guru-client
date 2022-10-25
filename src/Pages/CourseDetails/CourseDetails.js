@@ -23,10 +23,10 @@ const CourseDetails = () => {
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
     pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("print.pdf");
+    pdf.save("CourseGuru.pdf");
   };
   return (
-    <div ref={printRef}>
+    <div ref={printRef} className="mb-5">
       <Card className="mt-4 text-center ">
         <Card.Header className="d-flex justify-content-between">
           <h3 className="fw-bold">{name}</h3>

@@ -5,7 +5,7 @@ import AllCourse from "../AllCourse/AllCourse";
 const Courses = () => {
   const courses = useLoaderData();
   return (
-    <div>
+    <div className="mb-5">
       <h2 className="text-center text-primary mt-4">Our Courses</h2>
       <div className="d-flex text-warning">
         {" "}

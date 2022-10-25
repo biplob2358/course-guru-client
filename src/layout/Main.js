@@ -6,7 +6,7 @@ import Header from "../Pages/Shared/Header/Header";
 
 const Main = () => {
   return (
-    <div>
+    <div className="d-flex flex-column min-vh-100">
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>

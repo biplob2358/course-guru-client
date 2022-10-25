@@ -39,7 +39,7 @@ const Home = () => {
         </Carousel>
       </Container>
       {/* Why Course Guru */}
-      <Container className="mt-5">
+      <Container className="mt-5 mb-5">
         <h1 className="App">Why Course Guru?</h1>
         <CardGroup>
           <Card>
