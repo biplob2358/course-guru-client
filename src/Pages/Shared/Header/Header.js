@@ -1,5 +1,7 @@
-import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import React from "react";
+
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -12,16 +14,18 @@ import { Image } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  <BootstrapSwitchButton>
-    checked={false}
-    onlabel="Hello" offlabel='Regular User'
-  </BootstrapSwitchButton>;
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.error(error));
   };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      <span>{user?.displayName}</span>
+    </Tooltip>
+  );
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
@@ -49,18 +53,22 @@ const Header = () => {
             <Link className="text-light me-4 text-decoration-none" to="/blog">
               Blog
             </Link>
-
             <div className="text-light me-4 text-decoration-none" to="/profile">
               {user?.uid ? (
                 <>
-                  <span>{user?.displayName}</span>
                   <NavLink className="text-white text-decoration-none mx-1">
                     {user?.photoURL ? (
-                      <Image
-                        style={{ height: "40px" }}
-                        roundedCircle
-                        src={user.photoURL}
-                      ></Image>
+                      <OverlayTrigger
+                        placement="bottom"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={renderTooltip}
+                      >
+                        <Image
+                          style={{ height: "40px" }}
+                          roundedCircle
+                          src={user.photoURL}
+                        ></Image>
+                      </OverlayTrigger>
                     ) : (
                       <FaUser></FaUser>
                     )}
@@ -89,8 +97,17 @@ const Header = () => {
                 </>
               )}
             </div>
-
-            <BootstrapSwitchButton checked={true} onstyle="dark" />
+            <div className="form-check form-switch ">
+              <label className="form-check-label " for="lightSwitch">
+                {" "}
+                Dark Mode{" "}
+              </label>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="lightSwitch"
+              />
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

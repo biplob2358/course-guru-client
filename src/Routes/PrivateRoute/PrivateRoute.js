@@ -10,16 +10,18 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <Button variant="primary" disabled>
-        <Spinner
-          as="span"
-          animation="grow"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        />
-        Loading...
-      </Button>
+      <div className="d-flex justify-content-center align-items-center mt-4">
+        <Button variant="primary" disabled>
+          <Spinner
+            as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          />
+          Loading...
+        </Button>
+      </div>
     );
   }
 

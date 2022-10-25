@@ -3,18 +3,39 @@ import { Link, useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FaStar, FaDownload } from "react-icons/fa";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 const CourseDetails = () => {
+  const printRef = React.useRef();
   const courseDetails = useLoaderData();
   const { id, name, price, rating, img, description } = courseDetails;
+
+  //pdf
+  const handleDownloadPdf = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("print.pdf");
+  };
   return (
-    <div>
+    <div ref={printRef}>
       <Card className="mt-4 text-center ">
         <Card.Header className="d-flex justify-content-between">
           <h3 className="fw-bold">{name}</h3>
           <p>
             Download pdf
-            <Link className="text-decoration-none ms-2">
+            <Link
+              className="text-decoration-none ms-2"
+              onClick={handleDownloadPdf}
+            >
               {" "}
               <FaDownload></FaDownload>
             </Link>
