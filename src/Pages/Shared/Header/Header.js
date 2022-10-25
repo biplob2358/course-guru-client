@@ -5,14 +5,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../../Asset/logo/logo.jpg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { Image } from "react-bootstrap";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
   <BootstrapSwitchButton>
     checked={false}
     onlabel="Hello" offlabel='Regular User'
   </BootstrapSwitchButton>;
-
+  const { user } = useContext(AuthContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
@@ -52,6 +56,23 @@ const Header = () => {
             >
               Register
             </Link>
+            <Link
+              className="text-light me-4 text-decoration-none"
+              to="/profile"
+            >
+              {user?.displayName}
+            </Link>
+            <NavLink className="text-white text-decoration-none me-2">
+              {user?.photoURL ? (
+                <Image
+                  style={{ height: "40px" }}
+                  roundedCircle
+                  src={user.photoURL}
+                ></Image>
+              ) : (
+                <FaUser></FaUser>
+              )}
+            </NavLink>
 
             <BootstrapSwitchButton checked={true} onstyle="dark" />
           </Nav>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 const SideNav = () => {
@@ -12,7 +13,12 @@ const SideNav = () => {
   }, []);
   return (
     <div>
-      <h2>Our Courses</h2>
+      <h2 className="text-primary">Course List</h2>
+      <div className="d-flex text-warning">
+        {" "}
+        <hr style={{ width: "15%", border: "3px solid rgb(13, 110, 253)" }} />
+        <hr style={{ width: "15%", border: "3px solid rgb(13, 110, 253)" }} />
+      </div>
       <Link className="text-decoration-none" to={"/courses"}>
         All Courses
       </Link>

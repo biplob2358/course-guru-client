@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FiGithub } from "react-icons/fi";
+import GoogleGitLogin from "../../GoogleGitLogin/GoogleGitLogin";
 
 const Register = () => {
   return (
@@ -9,13 +8,20 @@ const Register = () => {
       style={{ height: "600px" }}
       className="d-flex justify-content-center align-items-center"
     >
-      <div className="login mx-auto">
+      <div className="login mx-auto  border shadow p-4">
         <form>
           <h1 className="text-center my-3">Register</h1>
           <input
             type="text"
             className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
-            placeholder="Name"
+            placeholder="Your Full Name"
+            style={{ backgroundColor: "#F5F5F5" }}
+            required
+          />
+          <input
+            type="text"
+            className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
+            placeholder="Photo URL"
             style={{ backgroundColor: "#F5F5F5" }}
             required
           />
@@ -33,13 +39,7 @@ const Register = () => {
             style={{ backgroundColor: "#F5F5F5" }}
             required
           />
-          <input
-            type="password"
-            className="w-75 mx-auto d-block py-2 px-4 border-0 mb-2"
-            placeholder="Confirm Password"
-            style={{ backgroundColor: "#F5F5F5" }}
-            required
-          />
+
           <button className="d-block mx-auto btn btn-primary" type="submit">
             Register
           </button>
@@ -57,14 +57,7 @@ const Register = () => {
           </Link>{" "}
           Now!
         </p>
-        <button className="d-block w-50 mx-auto btn btn-light border border-primary mb-2">
-          <FcGoogle></FcGoogle>
-          <span className="ms-2">Continue With Google</span>
-        </button>
-        <button className="d-block w-50 mx-auto btn btn-dark border border-warning mb-2">
-          <FiGithub></FiGithub>
-          <span className="ms-2">Continue With Github</span>
-        </button>
+        <GoogleGitLogin></GoogleGitLogin>
       </div>
     </div>
   );

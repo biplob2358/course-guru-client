@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FiGithub } from "react-icons/fi";
+
 import "./Login.css";
+import GoogleGitLogin from "../../GoogleGitLogin/GoogleGitLogin";
 
 const Login = () => {
   return (
@@ -10,7 +10,7 @@ const Login = () => {
       style={{ height: "600px" }}
       className="d-flex justify-content-center align-items-center"
     >
-      <div className="login mx-auto">
+      <div className="login mx-auto  border shadow p-4">
         <form>
           <h1 className="text-center my-3">Login</h1>
           <input
@@ -46,14 +46,7 @@ const Login = () => {
           </Link>{" "}
           Now!
         </p>
-        <button className="d-block w-50 mx-auto btn btn-light border border-primary mb-2">
-          <FcGoogle></FcGoogle>
-          <span className="ms-2">Continue With Google</span>
-        </button>
-        <button className="d-block w-50 mx-auto btn btn-dark border border-warning mb-2">
-          <FiGithub></FiGithub>
-          <span className="ms-2">Continue With Github</span>
-        </button>
+        <GoogleGitLogin></GoogleGitLogin>
       </div>
     </div>
   );
