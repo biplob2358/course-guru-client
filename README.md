@@ -9,7 +9,7 @@
 - ### **Course Guru is an educational Website**
 - ### **There are six Course**
 - ### **Course Guru is fully responsive on mobile,tablet and pc**
-- ### **There are responsive navbar **
+- ### **There are responsive navbar**
 - ### **There are FAQ page**
 - ### **In Blogs there are 4 question which is also responsive**
 
