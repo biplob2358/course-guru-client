@@ -2,7 +2,7 @@
 
 ## This project was completed by [Biplob Ghosh](https://www.linkedin.com/in/biplob971/).
 
-## [Live Site Link(coming soon)](https://course-guru-94acd.web.app/)
+## [Live Site Link](https://course-guru-94acd.web.app/)
 
 ## [Live Api](https://course-guru-server.vercel.app/courses)
 
