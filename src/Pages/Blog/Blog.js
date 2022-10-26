@@ -5,10 +5,10 @@ import Card from "react-bootstrap/Card";
 
 const Blog = () => {
   return (
-    <div>
+    <div className="mb-5">
       <Container>
-        <Card className="mt-4">
-          <Card.Body className="text-start">
+        <Card className="mt-4  border border-primary">
+          <Card.Body className="text-start shadow ">
             <Card.Title>What is cors? </Card.Title>
             <Card.Text>
               CORS is shorthand for Cross-Origin Resource Sharing. It is a
@@ -19,8 +19,8 @@ const Blog = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card className="mt-4">
-          <Card.Body className="text-start">
+        <Card className="mt-4 border border-primary">
+          <Card.Body className="text-start shadow ">
             <Card.Title>
               {" "}
               Why are you using firebase? What other options do you have to
@@ -36,13 +36,13 @@ const Blog = () => {
               <span className="fw-bold">Other options</span>
               <li>Auth0 </li>
               <li>MongoDB</li>
-              <li>, Passport</li>
+              <li> Passport</li>
               <li> Okta</li>
             </Card.Text>
           </Card.Body>
         </Card>
         <Card className="mt-4">
-          <Card.Body className="text-start">
+          <Card.Body className="text-start shadow border border-primary">
             <Card.Title> How does the private route work? </Card.Title>
             <Card.Text>
               The react private route component renders child components (
@@ -53,7 +53,7 @@ const Blog = () => {
           </Card.Body>
         </Card>
         <Card className="mt-4">
-          <Card.Body className="text-start">
+          <Card.Body className="text-start shadow border border-primary">
             <Card.Title> What is Node? How does Node work? </Card.Title>
             <Card.Text>
               Node. js is a JavaScript runtime environment that achieves low
