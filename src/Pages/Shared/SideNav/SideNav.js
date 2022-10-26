@@ -7,7 +7,7 @@ const SideNav = () => {
   const [coursesName, setCourseName] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://course-guru-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setCourseName(data));
   }, []);
