@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiGithub } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ const GoogleGitLogin = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("Login successfull");
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -29,6 +31,7 @@ const GoogleGitLogin = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("Login successfull");
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));

@@ -13,13 +13,16 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const [theme, setTheme] = useState("Light");
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        toast.success("LogOut successfull");
+      })
       .catch((error) => console.error(error));
   };
   const renderTooltip = (props) => (

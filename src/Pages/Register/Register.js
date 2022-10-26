@@ -56,7 +56,7 @@ const Register = () => {
           <h1 className="text-center my-3">Register</h1>
           <p className="text-center text-danger">{error}</p>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Your Name</Form.Label>
+            <Form.Label>Full Name</Form.Label>
             <Form.Control
               name="name"
               type="text"
